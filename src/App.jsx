@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Upload, FileText, LayoutDashboard, Bot, Settings, Menu, Calculator, LogOut, Download, BookUser, Search, Trash2, Send, CornerDownLeft, AlertTriangle, FileUp, Building, Users, Lock, X, Sparkles, KeyRound } from 'lucide-react';
+import { Upload, FileText, LayoutDashboard, Bot, Settings, Menu, Calculator, LogOut, Download, Search, Trash2, Send, CornerDownLeft, AlertTriangle, FileUp, Building, Users, Lock, X, Sparkles, KeyRound } from 'lucide-react';
 
 // --- 模擬數據與設定 ---
 const initialUsers = {
@@ -630,7 +630,7 @@ export default function App() {
   };
 
   const NavLink = ({ view, icon, label, permission }) => { if (permission && !currentUser.permissions.includes(permission)) { return null; } const isActive = activeView === view; return (<li><a href="#" onClick={(e) => { e.preventDefault(); setActiveView(view); if (window.innerWidth < 768) setIsSidebarOpen(false); }} className={`flex items-center p-3 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors ${isActive ? 'bg-blue-100 text-blue-700 font-bold' : ''}`}>{icon}<span className={`ml-3 flex-1 whitespace-nowrap ${isSidebarOpen ? 'opacity-100' : 'opacity-0'}`}>{label}</span></a></li>);};
-  const topNavItems = [{ view: 'dashboard', icon: <LayoutDashboard />, label: '儀表板總覽'}, { view: 'journal', icon: <FileUp />, label: '流水帳管理' }, { view: 'transactions', icon: <FileText />, label: '會計分錄' }, { view: 'ledger', icon: <BookUser />, label: '總帳查詢' }, { view: 'reports', icon: <FileText />, label: '財務報表' }];
+  const topNavItems = [{ view: 'dashboard', icon: <LayoutDashboard />, label: '儀表板總覽'}, { view: 'journal', icon: <FileUp />, label: '流水帳管理' }, { view: 'transactions', icon: <FileText />, label: '會計分錄' }, { view: 'ledger', icon: <Users />, label: '總帳查詢' }, { view: 'reports', icon: <FileText />, label: '財務報表' }];
   const bottomNavItems = [{ view: 'ai', icon: <Bot />, label: 'AI 智能問答', permission: 'ai_query' }, { view: 'settings', icon: <Settings />, label: '系統設定' }];
 
   return (
